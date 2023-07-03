@@ -1,6 +1,6 @@
 
 
-let sayilar = [1,2,3,4,5,6]
+const sayilar = [1,2,3,4,5,6]
 
 sayilar.forEach((x, index) => {           //arrow function ile
     console.log(x*2,index);
@@ -27,3 +27,36 @@ function diziyiYazdir(dizi, callback){
 diziyiYazdir(sayilar2, function(deger, index){
     console.log("Deger: " + deger + "  Index: " + index);
 })
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                     MAP                                    */
+/* -------------------------------------------------------------------------- */
+
+sayilar.push(7);       // burada sayilar arrayini degistirmeme ragmen hata almiyorum. Cünkü const bellekteki yerini sabitlemek demek. Eger sayilar = [1,2,3] yapsam o zaman problem yapardi.
+
+
+const yeniSayilar = sayilar.map(function(sayi){
+    return sayi * 2;
+})
+
+console.log(yeniSayilar);
+
+const kitaplar = [
+    {adi: 'chg', sayfSayisi: 374},
+    {adi: 'fgb', sayfSayisi: 574},
+    {adi: 'fng', sayfSayisi: 394},
+    {adi: 'fss', sayfSayisi: 234}
+]
+
+const sayfaSayilari = kitaplar.map((kitap) => {
+    return kitap.sayfSayisi;
+})
+
+console.log(sayfaSayilari);
+
+const kitapliste = kitaplar.map((kitap) => kitap.adi + " " + kitap.sayfSayisi)
+console.log(kitapliste);
+
